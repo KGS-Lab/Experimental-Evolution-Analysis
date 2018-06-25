@@ -1,4 +1,4 @@
-# Instal the needed packages
+# Install the needed packages
 library(ggplot2)
 library(reshape2)
 
@@ -41,4 +41,8 @@ dim(Counts)
 # Restructure this table into a long format (instead of wide format above)
 Raw_Data<-melt(Counts, id = c('Condition', 'Replicate', 'BARCODE'))
 colnames(Raw_Data)[4:5]<-c("Timepoint", "Counts")
+
+# save the outputs
+save(Counts, file = "/users/kerry/desktop/Experimental_Evolution_Analysis/Counts.Rfile")
+save(Raw_Data, file = "/users/kerry/desktop/Experimental_Evolution_Analysis/Raw_Data.Rfile")
 
